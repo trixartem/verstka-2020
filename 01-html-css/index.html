@@ -1,0 +1,2280 @@
+<!doctype html>
+<body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Верстка. CSS, HTML</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+    <style>
+        /*Переопределение стилей*/
+        .reveal pre code {
+            font-family: sourcecodepro-light, sans-serif
+        }
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4 {
+            text-transform: none;
+            text-shadow: #000 1px 1px 0;
+        }
+
+        /*Дополнительные стили*/
+        .example {
+            position: relative;
+        }
+
+        .example__iframe {
+            border: 1px solid #000;
+            min-width: 50vw;
+            min-height: 50vh;
+        }
+
+        mark {
+            border-radius: 3px;
+            background-color: #fcdf87;
+        }
+
+        mark.red {
+            background-color: #b3504b;
+            color: #fff;
+        }
+        mark.red * {
+            color: #fff;
+        }
+
+        .reveal .ex:link { color: blue !important; transition-duration: 0s !important;}
+        .reveal .ex:hover { color: green !important}
+        .reveal .ex:focus { color: yellow !important}
+        .reveal .ex:active { color: red !important}
+        .reveal .ex:visited { color: purple !important}
+
+         .wrapper {
+         }
+
+         .pdf-page {
+             background-color: #191919;
+         }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section data-background="./images/moroccan-flower-dark.png" data-background-repeat="repeat" data-background-size="300px">
+            <h1>Верстка</h1>
+
+            <div><span style="color: red;">К</span>увалдин <span style="color: red">А</span>ртём</div>
+        </section>
+
+        <section data-background="images/texturetastic_gray.png" data-background-repeat="repeat" data-background-size="300px" data-background-color="#fff">
+            <h1>Орг. моменты</h1>
+            <ul>
+                <li class="fragment">Всего 11 лекций</li>
+                <li class="fragment">Новости на сайте CSC</li>
+                <li class="fragment">Будет новость про общий чат</li>
+            </ul>
+        </section>
+        <section data-background="images/texturetastic_gray.png" data-background-repeat="repeat" data-background-size="300px" data-background-color="#fff">
+            <h2>Про домашку</h2>
+            <ul>
+                <li class="fragment">9 задач и 2 теста</li>
+                <li class="fragment">1 неделя на решение</li>
+                <li class="fragment">Допуск - все задачи зачтены</li>
+            </ul>
+        </section>
+
+        <section data-markdown data-background-color="#4A696F">
+					<textarea data-template>
+						## План лекции
+
+						- Из чего состоят web-сайты
+						- HTML
+						- CSS
+					</textarea>
+        </section>
+
+        <section data-background-color="#fff">
+            <h2>Когда заходим на сайт</h2>
+            <img src="images/website-schema.svg" alt="">
+        </section>
+
+        <section data-background-color="#10133a">
+            <h1>HTML</h1>
+            <p>HyperText Markup Language</p>
+        </section>
+
+        <section>
+            <h2>HTML-разметка</h2>
+            <pre>
+                <code data-trim data-escape>
+&lt;!DOCTYPE html>
+&lt;html lang="ru">
+&lt;head>
+  <meta charset="UTF-8">
+  <title>CERN</title>
+&lt;/head>
+&lt;body>
+<p>
+  <a href="http://home.web.cern.ch/">CERN</a>
+  is a <b>European</b> research ...
+</p>
+&lt;/body>
+&lt;/html>
+                </code>
+            </pre>
+        </section>
+
+        <section data-background-color="#fff">
+            <h2>В браузере</h2>
+            <div class="example">
+                <iframe src="examples/iframe/index.html" frameborder="1" class="example__iframe"></iframe>
+            </div>
+
+        </section>
+
+        <section data-transition="slide-in none-out">
+            <h2>Теги</h2>
+            &lt;a href="http://home.web.cern.ch">CERN&lt;/a>
+        </section>
+        <section data-transition="none">
+            <h2>Открывающий тег</h2>
+            <mark>&lt;a</mark>
+            href="http://home.web.cern.ch">CERN&lt;/a>
+        </section>
+        <section data-transition="none">
+            <h2>Закрывающий тег</h2>
+            &lt;a href="http://home.web.cern.ch">CERN
+            <mark>&lt;/a></mark>
+        </section>
+        <section data-transition="none">
+            <h2>Атрибут</h2>
+            &lt;a
+            <mark>href="http://home.web.cern.ch"</mark>
+            >CERN&lt;/a>
+        </section>
+        <section data-transition="none-in slide-out">
+            <h2>Содержимое</h2>
+            &lt;a href="http://home.web.cern.ch">
+            <mark>CERN</mark>&lt;/a>
+        </section>
+        <section>
+            <h2>Виды тегов</h2>
+            <pre class="fragment"><code>&lt;!--Без содержимого-->
+<img src="../funny/cats.png" alt="Котики">
+</code></pre>
+            <pre class="fragment"><code>&lt;!--Только текст-->
+&lt;title>HTML Лекция&lt;/title>
+</code></pre>
+            <pre class="fragment"><code>&lt;!--Обычные теги-->
+<p>
+    <a href="http://home.web.cern.ch/">CERN</a>
+    is a European research organization
+    that operates the largest particle
+    physics laboratory in the world.
+</p>
+</code></pre>
+        </section>
+
+        <section>
+            <h2>Что будет, если тег не закрыть?</h2>
+            <pre><code>&lt;ul>
+    &lt;li>Молоко
+    &lt;li>Хлеб
+    &lt;li>Яблоки
+    &lt;li>Audi TT
+&lt;/ul>
+</code></pre>
+        </section>
+        <section>
+            <h2>Закроются сами</h2>
+            <pre><code>&lt;ul>
+    &lt;li>Молоко&lt;/li>
+    &lt;li>Хлеб&lt;/li>
+    &lt;li>Яблоки&lt;/li>
+    &lt;li>Audi TT&lt;/li>
+&lt;/ul>
+</code></pre>
+            <p class="fragment">
+                Но, есть фиксированный <a href="https://www.w3.org/TR/html5/syntax.html#optional-tags">список</a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Атрибуты</h2>
+            <pre><code data-trim data-line-numbers>&lt;!--Их может быть несколько-->
+&lt;input type="button" value="Click me">
+
+&lt;!--Кавычки необязательны-->
+&lt;input type=button value=Click>
+
+&lt;!--Бывают одиночные атрибуты-->
+&lt;input disabled>
+
+&lt;!--Тоже самое:-->
+&lt;input disabled="sometext">
+            </code></pre>
+        </section>
+
+        <section class="center">
+            <h1>Универсальные атрибуты</h1>
+            <iframe src="https://giphy.com/embed/1PgFpz0u4diQRuHyvE" width="380" height="344" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        </section>
+
+        <section class="center">
+            <p>id – задаёт
+                <mark>уникальный</mark>
+                идентификатор элемента
+            </p>
+        </section>
+
+        <section>
+            <h2>id</h2>
+            <pre><code data-trim>&lt;input type="email" id="email_input">
+            </code></pre>
+
+            <pre class="fragment"><code data-trim>/*В стилях*/
+#email_input { width: 100px }
+            </code></pre>
+
+            <pre class="fragment"><code  data-trim>//  Получаем доступ к элементу как к JS объекту по id
+var email = document.getElementById('email_input');
+            </code></pre>
+        </section>
+
+        <section class="center">
+            <p>class – задаёт
+                <mark>класс</mark>
+                элементов, позволяя группировать их
+            </p>
+        </section>
+
+        <section>
+            <h2>class</h2>
+            <pre><code data-trim data-escape class="html">
+<h2>Список покупок:</h2>
+&lt;ul class="list">
+    &lt;li class="grocery">Хлеб&lt;/li>
+    &lt;li class="fruit">Ананас&lt;/li>
+    &lt;li class="grocery">Батон&lt;/li>
+    &lt;li class="fruit">Апельсины&lt;/li>
+    &lt;li class="fruit">Яблоки&lt;/li>
+&lt;/ul></code></pre>
+            <pre><code data-trim data-escape class="css">.grocery { color: blue }
+.fruit { color: red }</code></pre>
+        </section>
+
+        <section data-background-color="#fff">
+            <h2>Пример</h2>
+            <iframe src="examples/iframe/list.html" class="example__iframe"></iframe>
+        </section>
+
+        <section class="center">
+            <p>title – добавляет пояснение к содержимому элемента, которое появляется при наведении</p>
+        </section>
+
+        <section>
+            <h2>title</h2>
+            <pre><code data-trim data-escape="">
+<abbr title="World Wide Web">www</abbr>
+
+<p title="application programming interface">API</p>
+            </code></pre>
+        </section>
+
+        <section data-background-color="#fff">
+            <h2>Пример</h2>
+            <iframe src="examples/iframe/title.html" class="example__iframe"></iframe>
+        </section>
+
+        <section class="center">
+            <h2>Как в виде текста <br>отобразить тег?</h2>
+        </section>
+
+        <section>
+            <a href="https://www.w3.org/TR/html5/syntax.html#named-character-references"><h2>HTML Entity</h2></a>
+            <pre><code><p>&amp;copy;</p>  &lt;!-- © -->
+<p>&amp;amp;</p>   &lt;!-- & -->
+<p>&amp;pound;</p> &lt;!-- £ -->
+<p>&amp;forall;</p>&lt;!-- &forall; -->
+<p>&amp;lt;</p>    &lt;!-- &lt; -->
+<p>&amp;gimel;</p> &lt;!-- &gimel; -->
+<p>&amp;nbsp;</p>  &lt;!-- Неразрывный пробел(no-break space) --></code></pre>
+        </section>
+
+        <section class="center" data-background="./images/y-so-serious.png" data-background-repeat="repeat" data-background-size="400px">
+            <h1>HTML–элементы</h1>
+        </section>
+
+        <section>
+            <h2>index.html</h2>
+            <pre class="example"><code data-line-numbers="|1">&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        <meta name="description" content="...">
+        &lt;title>CERN&lt;/title>
+    &lt;/head>
+&lt;body>
+    <p>
+        <a href="http://home.web.cern.ch/">CERN</a>
+        is a European research organization
+        ...
+    </p>
+&lt;/body>
+&lt;/html>
+</code><a class="example__link" href="examples/index.html" target="_blank"></a></pre>
+        </section>
+
+        <section class="center">
+            <p>!DOCTYPE – директива, которая указывает на спецификацию, по которой был создан документ</p>
+        </section>
+
+        <section>
+            <h2>DOCTYPE</h2>
+
+            <pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+&lt;html xmlns="http://www.w3.org/1999/xhtml">
+    ...
+&lt;/html></code></pre>
+        </section>
+
+        <section>
+            <h2>DOCTYPE для HTML5</h2>
+            <pre><code>&lt;!DOCTYPE html>
+&lt;title>My awesome HTML page&lt;/title></code></pre>
+            <p class="fragment">Минимально <a href="https://validator.w3.org/">возможный</a> html-документ.</p>
+        </section>
+
+        <section class="center">
+            <h1>head</h1>
+            <pre class="example"><code data-line-numbers="3-6">&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        <meta name="description" content="...">
+        &lt;title>CERN&lt;/title>
+    &lt;/head>
+&lt;body>
+    <p>
+        <a href="http://home.web.cern.ch/">CERN</a>
+        is a European research organization
+        ...
+    </p>
+&lt;/body>
+&lt;/html>
+</code><a class="example__link" href="examples/index.html" target="_blank"></a></pre>
+        </section>
+
+        <section>
+            <h2>link</h2>
+            <pre><code>&lt;link href="styles.css">
+
+&lt;!--media="all/screen/print/speech/braille"-->
+&lt;link href="print-styles.css" media="print">
+&lt;link href="favicon.ico">
+
+&lt;!--rel – описывает тип связи-->
+&lt;link rel="alternate" type="application/rss+xml" href="rss.xml"></code></pre>
+        </section>
+
+        <section>
+            <h2>script/style</h2>
+            <pre class="example"><code>&lt;html lang="en">
+&lt;head>
+    <script src="path/jquery-plugin.js"></script>
+    <style>
+        p {
+            color: red;
+        }
+    </style>
+&lt;/head>
+&lt;body>
+    <script>
+        console.log('Hello!');
+    </script>
+&lt;/body>&lt;/html></code><a class="example__link" target="_blank" href="examples/script-style.html"></a></pre>
+        </section>
+
+        <section>
+            <h2>meta</h2>
+            <pre><code>&lt;meta charset="utf-8">
+&lt;!--  name="название" content="значение"-->
+&lt;meta name="description" content="CERN, the European">
+&lt;meta name="author" content="Tim Berners-Lee"></code></pre>
+        </section>
+
+        <section class="center">
+            <p><a href="http://fbdevwiki.com/wiki/Open_Graph_protocol" target="_blank">Open Graph</a> – возможность
+                связывать свой контент с социальными сетями и правильно его там представлять</p>
+        </section>
+
+        <section>
+            <h2>Open Graph</h2>
+            <pre><code class="html"><meta property="og:title" content="Осень, Matt Absolon.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://yandex.ru/images...">
+<meta property="og:image" content="http://images.yandex..."></code></pre>
+
+        </section>
+
+        <section>
+            <img src="images/open-graph.png">
+        </section>
+
+        <section class="center" data-background-color="#10133a">
+            <h1>Семантическая разметка</h1>
+        </section>
+
+        <section class="center">
+            <p>Семантика – раздел лингвистики, изучающий смысловое значение единиц языка</p>
+        </section>
+
+        <section>
+            <h2>"Дивная" верстка</h2>
+            <pre><code class="html">
+<div>
+    <div>CERN is a European research organization that operates
+    the largest particle physics laboratory in the world.</div>
+
+    <div>CERN's main function is to provide the particle accelerators
+    and other infrastructure needed for high-energy physics research</div>
+
+    <div>Last modified: 2015-09-22</div>
+    <div>Author: ivan@example.com</div>
+</div>
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Семантичная верстка</h2>
+
+            <pre><code><!-- Обозначаем статью -->
+<article>
+    <!-- Аббревиатура -->
+    <p><abbr title="Conseil Européen pour la ...">CERN</abbr>
+    is ... </p>
+    <p>CERN's main function is to provide the particle
+    accelerators and ... </p>
+</article>
+                <!-- Информацию в подвале -->
+<footer>
+    <!-- Время -->
+    <p>Last modified: <time>2001-04-23</time></p>
+    <!-- И контактную информацию -->
+    <address>Author: fred@example.com</address>
+</footer></code></pre>
+        </section>
+
+        <section>
+            <h2>Семантичные теги</h2>
+            <ul style="font-size: 30px;">
+                <li>section/article</li>
+                <li>aside</li>
+                <li>header/main/footer</li>
+                <li>figure и figcaption</li>
+                <li>h1-h6</li>
+                <li>nav</li>
+                <li><a href="https://html5book.ru/html5-semantic-elements/" target="_blank">Другие</a></li>
+            </ul>
+        </section>
+
+        <section class="center">
+            <p>section – определяет <mark>тематическую</mark> группу элементов: блок комментариев к посту в блоге,
+                главы в статье или список постов</p>
+        </section>
+
+        <section class="center">
+            <p>article – обозначает <mark>законченную самодостаточную</mark> часть документа: пост на форуме или в
+                блоге, новостная статья или виджет</p>
+        </section>
+
+        <section class="center" style="text-align: center;">
+            <img src="http://front-end.su/images/div-section-article.png">
+        </section>
+
+        <section class="center" style="text-align: center;">
+            <img src="https://cdn-images-1.medium.com/max/800/1*j2PG4zz6Dsr_91maYVGIGA.png">
+        </section>
+
+        <section>
+            <h2>paragraph</h2>
+            <pre><code><article> <!-- Пост в блоге -->
+     <h1>
+         Protect — как Яндекс.Браузер защищает пользователей
+     </h1>
+     <p>Яндекс.Браузер предостерегает пользователей,
+         когда они начинают вводить пароль на подозрительных
+         страницах.</p>
+     <p>Как только пользователь устанавливает курсор мыши в
+         поле для ввода пароля на любом сайте, которого нет
+         в списке, активируется система защиты.</p>
+ </article></code></pre>
+        </section>
+
+        <section>
+            <h2>Иногда br</h2>
+
+            <pre><code><p>
+    Сижу за решеткой в темнице сырой.<br>
+    Вскормленный в неволе орел молодой,<br>
+    Мой грустный товарищ, махая крылом,<br>
+    Кровавую пищу клюет под окном,<br>
+</p>
+<p>...</p></code></pre>
+
+        </section>
+
+        <section>
+            <h2>Что будет?</h2>
+            <pre><code class="html"><p>
+,--.   ,--.  ,---.  ,------.  ,---.
+|   `.'   | /  O  \ |  .--. ''   .-'
+|  |'.'|  ||  .-.  ||  '--'.'`.  `-.
+|  |   |  ||  | |  ||  |\  \ .-'    |
+`--'   `--'`--' `--'`--' '--'`-----'
+</p></code><a class="example__link" target="_blank" href="examples/without-pre.html"></a></pre>
+        </section>
+
+        <section>
+            <div>
+                ,--.   ,--.  ,---.  ,------.  ,---.
+                |   `.'   | /  O  \ |  .--. ''   .-'
+                |  |'.'|  ||  .-.  ||  '--'.'`.  `-.
+                |  |   |  ||  | |  ||  |\  \ .-'    |
+                `--'   `--'`--' `--'`--' '--'`-----'
+            </div>
+        </section>
+
+        <section>
+            <h2>pre(preformatted text)</h2>
+            <pre><code class="html"><pre>
+
+,--.   ,--.  ,---.  ,------.  ,---.
+|   `.'   | /  O  \ |  .--. ''   .-'
+|  |'.'|  ||  .-.  ||  '--'.'`.  `-.
+|  |   |  ||  | |  ||  |\  \ .-'    |
+`--'   `--'`--' `--'`--' '--'`-----'
+</pre></code><a class="example__link" target="_blank" href="examples/with-pre.html"></a></pre>
+        </section>
+
+        <section>
+            <h2>Списки</h2>
+
+            <pre><code class="html"><ol type="I">
+    <li>Сельдь</li>
+    <li>Хлеб</li>
+    <li>Фрукты:
+        <ul>
+            <li>Бананы</li>
+            <li>Яблоки</li>
+        </ul>
+    </li>
+    <li>Молоко</li>
+    <li>Audi TT</li>
+</ol></code><a class="example__link" target="_blank" href="examples/lists.html"></a></pre>
+        </section>
+
+        <section>
+            <h2>div/span</h2>
+            <pre class="example"><code><div style="...">
+    <p>
+         <span style="color: red">Я</span>ндекс.Браузер
+        предостерегает пользователей,когда они начинают
+        вводить пароль на подозрительных страницах.
+     </p>
+     <p>
+         Как только пользователь устанавливает курсор мыши
+         в поле для ввода пароля на любом сайте, которого
+         нет в списке, активируется система защиты.
+     </p>
+ </div></code><a class="example__link" target="_blank" href="examples/div-span.html"></a></pre>
+        </section>
+
+        <section class="center">
+            <h1>Таблицы</h1>
+        </section>
+
+        <section>
+<pre class="example"><code>&lt;table>
+    &lt;thead><!--обозначает шапку таблицы-->
+        &lt;th>H 0.1&lt;/th>
+        &lt;th>H 0.2&lt;/th>
+        &lt;th>H 0.3&lt;/th>
+    &lt;/thead>&lt;tfoot>...&lt;/tfoot>
+    &lt;tbody>&lt;tr><!--обозначает строку таблицы-->
+        &lt;td>A 1.1&lt;/td><!--обозначает ячейку таблицы-->
+        &lt;td>A 1.2&lt;/td>
+        &lt;td>A 1.3&lt;/td>
+    &lt;/tr>
+    &lt;tr>
+        &lt;td>A 2.1&lt;/td>
+        &lt;td>A 2.2&lt;/td>
+        &lt;td>A 2.3&lt;/td>
+    &lt;/tr>&lt;/tbody>
+&lt;/table></code><a class="example__link" target="_blank" href="examples/table.html"></a></pre>
+        </section>
+
+        <section>
+            <h2>Объединение ячеек</h2>
+            <pre class="example"><code data-line-numbers="|3-5|6-7,12">&lt;table>
+&lt;tr>
+        <!--горизонтальные ячейки-->
+    &lt;td colspan=2>A 1.1&lt;/td>
+        <!--&lt;td>A 1.2&lt;/td>-->
+        <!--вертикальные ячейки-->
+    &lt;td rowspan=2>A 1.3&lt;/td>
+&lt;/tr>
+&lt;tr>
+    &lt;td>A 2.1&lt;/td>
+    &lt;td>A 2.2&lt;/td>
+            <!--&lt;td>A 2.3&lt;/td>-->
+    &lt;/tr>
+&lt;/table></code><a class="example__link" target="_blank" href="examples/join-table.html"></a></pre>
+        </section>
+
+        <section class="center">
+            <h2>Текстовые теги</h2>
+        </section>
+
+        <section>
+            <ul style="font-size: 24px">
+                <li>Форматирование текста:
+                    <ul style="padding-left: 50px">
+                        <li>em - для акцентирования текста</li>
+                        <li>strong – для обозначения важной информации</li>
+                        <li>mark – помечает текст как выделенный</li>
+                        <li>small – для различной уточняющей информации</li>
+                        <li>i – для дополнительного выделения(экспрессивно-эмоциональным)</li>
+                        <li>b – для выделения из окружающего его контекста(ключевые слова в выдержках)</li>
+                        <li>&lt;sub&gt; &lt;sup&gt; &lt;ins&gt; &lt;del&gt;</li>
+                    </ul>
+                </li>
+                <li>Для кода: &lt;code&gt; &lt;kbd&gt; &lt;samp&gt; &lt;var&gt; &lt;pre&gt;</li>
+                <li>Перенос текста: &lt;p&gt; &lt;br&gt; &lt;hr&gt; &lt;wbr&gt;</li>
+                <li>Цитаты/определения: &lt;abbr&gt; &lt;blockquote&gt; &lt;q&gt; &lt;dfn&gt; &lt;cite&gt; &lt;bdo&gt;
+                </li>
+                <li><a target="_blank" href="examples/iframe/text-tags.html">Примеры</a></li>
+            </ul>
+
+        </section>
+
+        <section class="center" data-background-color="#291907">
+            <h1>Интерактивные элементы</h1>
+            <p><img src="https://rawgit.com/urfu-2016/markup-slides/master/01-html/img/inter.gif"></p>
+        </section>
+
+        <section>
+            <h2>Ссылки</h2>
+            <pre class="fragment"><code  class="html"><a href="http://yandex.ru" title="Yandex">Yandex</a></code></pre>
+            <pre class="fragment"><code class="html"><!--Открывается в новой вкладке/окне-->
+<a href="http://yandex.ru" target="_blank">Yandex</a></code></pre>
+
+            <pre class="fragment"><code class="html"><!--Относительно текущего пути-->
+<a href="examples/text-tags.html">Yandex</a>
+<!--https://example.ru/slides/01-html/examples/text-tags.html--></code></pre>
+            <pre class="fragment"><code class="html"><!--Относительно текущего хоста-->
+<a href="/examples/text-tags.html">Yandex</a>
+<!--https://example.ru/examples/text-tags.html--></code></pre>
+            <a class="fragment" href="https://ru.wikipedia.org/wiki/URL">Подробнее про URL</a>
+        </section>
+
+        <section>
+            <h2>Протоколы</h2>
+            <pre><code><a href="http://images.yandex.ru">Images</a>
+
+<a href="//images.yandex.ru">Images</a>
+
+<a href="mailto:akuv@yandex-team.ru">@akuv</a>
+
+<a href="skype:trixartem">Позвонить по скайпу</a>
+
+<a href="tel:+79000000000">Позвонить</a></code></pre>
+        </section>
+
+        <section>
+            <h2>Якоря</h2>
+            <pre><code><a href="#anchor">ссылка на якорь</a>
+
+<article>Много текста...</article>
+
+<div id="anchor">якорь</div></code></pre>
+        </section>
+
+        <section>
+            <h2>Картинки</h2>
+            <pre><code class="html"><img src="cat.jpg" title="cat" alt="image fat cat"></code></pre>
+            <p class="fragment"><strong>Атрибут alt <a
+                    href="http://prgssr.ru/development/alternativnyj-tekst-dlya-izobrazhenij.html">обязательный</a></strong>
+            </p>
+        </section>
+
+        <section class="center">
+            <p>
+                <img src="images/fat-cat.jpg" width="500">
+            </p>
+        </section>
+
+        <section>
+            <h2>Размеры картинок</h2>
+            <pre><code class="html"><img src="img/cat.png" width="300">
+<img src="img/cat.png" height="300">
+<img src="img/cat.png" height="300" width="400"></code></pre>
+            <p>
+                <img class="fragment" src="images/fat-cat.jpg" width="250">
+                <img class="fragment" src="images/fat-cat.jpg" height="250">
+                <img class="fragment" src="images/fat-cat.jpg" width="400" height="250">
+            </p>
+        </section>
+
+        <section>
+            <h2>Почитать самим</h2>
+            <ul>
+                <li>iframe</li>
+                <li>audio/video</li>
+                <li>track</li>
+            </ul>
+
+            <p><img src="images/cat-hw.gif"></p>
+        </section>
+
+        <section class="center" data-background="./images/circle-blues.png" data-background-size="400px"data-background-repeat="repeat">
+            <h2>Формы</h2>
+        </section>
+
+        <section>
+            <h2>input</h2>
+            <pre class="example"><code><input type="text" value="Текстовое поле">
+
+<!--все символы показываются звездочками.-->
+<input type="password">
+
+<!--для ввода символов с помощью клавиатуры.-->
+<input type="text" placeholder="Введите текст">
+
+<!--Поле для ввода имени файла,
+который пересылается на сервер.-->
+<input type="file"></code><a class="example__link" target="_blank" href="examples/inputs.html"></a></pre>
+        </section>
+
+        <section data-background-color="#fff">
+            <iframe src="examples/iframe/forms.html" class="example__iframe"></iframe>
+        </section>
+
+        <section>
+            <h2>checkbox/radio</h2>
+            <pre class="example"><code data-trim data-line-numbers="|1-4|6-9">
+<!--Позволяют выбрать более одного
+варианта из предложенных.-->
+<input type="checkbox" checked> Хлеб
+<input type="checkbox"> Молоко
+
+<!--Используются, когда следует выбрать
+один вариант из нескольких предложенных.-->
+<input type="radio" name="drink"> Вода
+<input type="radio" name="drink" checked> Сок
+                </code></pre>
+        </section>
+
+        <section data-background-color="#fff">
+            <iframe src="examples/iframe/checkbox.html" class="example__iframe"></iframe>
+        </section>
+
+        <section>
+            <h2>select</h2>
+            <pre class="example"><code data-trim class="html">
+<select name="hero">
+    &lt;option selected>Выберите героя&lt;/option>
+    <option value="Чебурашка">Чебурашка</option>
+    <option value="Крокодил Гена">Крокодил Гена</option>
+    <option value="Шапокляк">Шапокляк</option>
+    <option value="Крыса Лариса">Крыса Лариса</option>
+</select>
+            </code></pre>
+        </section>
+
+        <section data-background-color="#fff">
+            <iframe src="examples/iframe/select.html" class="example__iframe"></iframe>
+        </section>
+
+        <section>
+            <h2>textarea</h2>
+            <pre class="example"><code data-trim class="html">
+&lt;textarea rows="7"
+  cols="35"
+  name="text"
+  placeholder="Введите текст">Текст&lt;/textarea>
+            </code></pre>
+        </section>
+
+        <section data-background-color="#fff">
+            <iframe src="examples/iframe/textarea.html" class="example__iframe"></iframe>
+        </section>
+
+        <section>
+            <h2>Кнопки</h2>
+
+            <pre class="example"><code class="html" data-trim>
+<button>Это кнопка</button>
+
+<input type="button" value="Кнопка-input">
+
+&lt;button disabled>Эта кнопка заблокирована&lt;/button>
+
+<!--type="button | reset | submit*"-->
+<button type="reset">Это кнопка сброса</button>
+</code></pre>
+
+            <pre class="fragment example"><code><button>Это кнопка <img src="button.png"></button></code></pre>
+        </section>
+
+        <section data-background-color="#fff">
+            <iframe src="examples/iframe/button.html" class="example__iframe"></iframe>
+        </section>
+
+        <section>
+            <h2>label</h2>
+            <pre class="example"><code class="html" data-trim>
+<p>Выберите напиток</p>
+
+<input type="checkbox" id="check1">
+<!--устанавливает связь между определённой меткой и
+ элементом формы-->
+<label for="check1">Коньяк</label>
+
+<label><input type="checkbox">Арманьяк</label>
+        </code></pre>
+        </section>
+
+        <section data-background-color="#fff">
+            <iframe src="examples/iframe/label.html" class="example__iframe"></iframe>
+        </section>
+
+        <section class="center">
+            <p>form – для обмена данными между пользователем и сервером</p>
+        </section>
+
+        <section>
+            <h2>form</h2>
+            <pre class="example"><code>
+<!--action - указывает обработчик, к которому обращаются
+данные формы при их отправке на сервер-->
+<form method="post" action="handler.php">
+    <input name="name" placeholder="Ваше ФИО">
+    <input name="email" placeholder="Ваш email" type="email">
+    <input name="secret" type="hidden">
+    <button type="submit">Отправить</button>
+    <button type="reset">Сбросить</button>
+</form></code><a class="example__link" target="_blank" href="examples/form.html"></a></pre>
+            <p class="fragment" style="font-size: 24px">
+                <code>name=[значение1]&email=[значение2]&secret=[значение3]</code></p>
+        </section>
+
+        <section class="center">
+            <h2>method="get"</h2>
+            <p>для получения требуемой информации и передачи данных в адресной строке (<mark>ограничение в 4
+                Кб</mark>)</p>
+        </section>
+
+        <section class="center">
+            <h2>method="post"</h2>
+            <p>посылает на сервер данные в запросе браузера. <mark>Большие объёмы данных</mark> используются в
+                форумах, почтовых службах, заполнении базы данных, при пересылке файлов и др</p>
+        </section>
+
+        <section>
+            <h2>Валидация</h2>
+            <pre class="example"><code class="html" data-trim>
+<form method="post">
+<input type="text" required placeholder="Как вас зовут?">
+
+<input type="email" placeholder="email" required>
+
+<input type="url" placeholder="url" required>
+
+&lt;input type="tel" pattern="2-[0-9]{3}-[0-9]{3}"
+       placeholder="2-123-312" required>
+
+<!--<input type="submit" value="Отправить">-->
+<button>Отправить</button>
+<button type="reset">Очистить</button>
+</form></code></pre>
+        </section>
+
+        <section data-background-color="#fff">
+            <iframe src="examples/iframe/validation.html" class="example__iframe"></iframe>
+        </section>
+
+        <section>
+            <h2>На дом</h2>
+            <ul>
+                <li>Атрибут tabindex</li>
+                <li>ARIA</li>
+                <li>Как поменять направление текста?</li>
+                <li>Как верстать письма?</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Почитать</h2>
+            <ul>
+                <li><a href="https://github.com/urfu-2015/verstka-lectures/blob/master/html/part-1.md">HTML I</a></li>
+                <li><a href="https://github.com/urfu-2015/verstka-lectures/blob/master/html/part-2.md">HTML II</a></li>
+                <li><a href="http://front-end.su/2015/11/01/div-or-section-or-article/">div или section или article?</a>
+                </li>
+                <li><a href="https://www.w3.org/">W3C</a></li>
+                <li><a href="https://html.spec.whatwg.org/multipage/embedded-content.html">whatwg</a></li>
+                <li><a href="https://html5book.ru/">HTML5BOOK</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Вопросы?</h2>
+            <img src="images/cat-move.webp" alt="">
+        </section>
+
+        <section data-background-repeat="repeat" data-background="./images/oriental-tiles.png" data-background-size="300px">
+            <h1>CSS</h1>
+        </section>
+
+        <section>
+            <img src="images/css-awesome.png"/>
+        </section>
+
+        <section>
+            <section>
+                <h2>Пример 1.</h2>
+                <h3>Какого цвета будет текст?</h3>
+                <pre class="html size-l"><code data-trim>
+&lt;p&gt;
+    Привет, студентам
+    &lt;abbr title="Computer Science Center"&gt;
+        CSC
+    &lt;/abbr&gt;
+&lt;/p&gt;
+</code></pre>
+                <pre class="css size-l"><code data-trim>
+p {
+    color: green;
+}
+</code></pre>
+            </section>
+
+            <section data-background-color="#fff">
+                <iframe src="./examples/iframe/color-text-css.html" class="example__iframe"></iframe>
+            </section>
+
+            <section>
+                <h2>Пример 2.</h2>
+                <h3>Какого цвета будет ссылка?</h3>
+                <pre class="html size-l"><code data-trim>
+&lt;span&gt;
+    Привет, от
+    &lt;a href="https://yandex.ru"&gt;
+        Яндекса
+    &lt;/a&gt;
+&lt;/span&gt;
+</code></pre>
+                <pre class="css size-l"><code data-trim>
+span {
+    color: red !important;
+}
+</code></pre>
+            </section>
+            <section data-background-color="#fff">
+                <iframe src="./examples/iframe/color-link-css.html" class="example__iframe"></iframe>
+            </section>
+            <section>
+                <h2>Пример 3.</h2>
+                <h3>Что получится в результате?</h3>
+                <pre class="html size-l"><code data-trim>
+&lt;div class="yandex"&gt;Яндекс, просто Яндекс&lt;/div&gt;
+</code></pre>
+                <pre class="css size-s"><code data-trim>
+div {
+    font-size: 100px;
+    font-family: ComicSans,
+    Yandex Sans Logotype;
+    color: black;
+    bem: true;
+
+.yandex {
+    color: yellow;
+}
+
+::first-letter {
+    color: red;
+}
+</code></pre>
+            </section>
+
+            <section data-background-color="#fff">
+                <iframe src="./examples/iframe/color-text-error-css.html" class="example__iframe"></iframe>
+            </section>
+
+            <section>
+                <h2>Пример 4.</h2>
+                <h3>Какого цвета будет текст?</h3>
+                <pre class="html size-l"><code>
+&lt;a&gt;&lt;table&gt;Первый&lt;/table&gt;&lt;/a&gt;
+&lt;span&gt;&lt;div&gt;Второй&lt;/div&gt;&lt;/span&gt;
+&lt;p&gt;&lt;p&gt;Третий&lt;/p&gt;&lt;/p&gt;
+</code></pre>
+                <pre class="css size-l"><code>
+a { color: red }
+span { color: blue }
+p { color: purple }
+p p { color: green }
+* { color: yellow }
+</code></pre>
+            </section>
+            <section data-background-color="#000">
+                <iframe src="./examples/iframe/color-text-2-css.html" class="example__iframe"></iframe>
+            </section>
+        </section>
+        <section>
+            <img src="images/css-magic.gif"/>
+        </section>
+
+        <section data-background-image="img/history.jpg">
+            <h1 style="margin-top: 250px; text-shadow: #000 3px 2px 2px;">История</h1>
+        </section>
+        <section data-background-image="img/good-parking.jpg">
+            <h1 style="text-shadow: #000 3px 2px 2px;">HTML – это язык разметки</h1>
+        </section>
+
+        <section>
+            <h1>Заголовок 1</h1>
+            <h2 class="fragment">Заголовок 2</h2>
+            <h3 class="fragment">Заголовок 3</h3>
+            <h4 class="fragment">Заголовок 4</h4>
+            <div class="fragment">Удивительно, но это просто div</div>
+        </section>
+        <section>
+            <h1>Хочется большего</h1>
+            <img src="images/cat-want-more.webp" alt="">
+        </section>
+        <section>
+            <h1 style="color: red">Заголовок 1</h1>
+            <h2 class="fragment">З<span style="color: red">а</span>г<span style="color: red">о</span>л<span style="color: red">о</span>в<span style="color: red">о</span>к 2</h2>
+            <h3 class="fragment" style="font-family: 'Comic Sans MS'">Заголовок 3</h3>
+            <h4 class="fragment" style="border: 5px dotted red;">Заголовок 4</h4>
+            <div class="fragment psy">
+                <span>Удивительно, но это снова просто div</span>
+                <div>
+                    <audio controls="controls">
+                        Your browser does not support the <code>audio</code> element.
+                        <source src="./media/psy.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>CSS: причины появления</h2>
+            <p class="size-m fragment">– избыточность HTML</p>
+            <p class="size-m fragment">– больше возможностей для оформления</p>
+            <p class="size-m fragment">– упрощение оформления страницы</p>
+            <p class="size-m fragment">– избавление от копипасты</p>
+            <p class="size-m fragment">– <mark class="fragment shown">разделение контента и визуальной составляющей страницы</mark></p>
+        </section>
+        <section>
+            <h2>Определение</h2>
+            <p>CSS &mdash; язык стилей, определяющий отображение HTML (и других) документов.</p>
+            <p>CSS работает со шрифтами, цветом, полями, строками, высотой, шириной, фоновыми изображениями, позиционированием элементов и многими другими вещами.</p>
+        </section>
+
+
+        <section>
+            <h2>Основные этапы развития</h2>
+            <ol>
+                <li>CSS уровень 1 (1996, 1999) – параметры шрифтов, цвета, ...</li>
+                <li>CSS уровень 2 (12 мая 1998) – блочная вёрстка, селекторы, ...</li>
+                <li>CSS уровень 2.1 (07 июня 2011)</li>
+                <li>CSS уровней 3 находится в стадии разработки – трансформации, анимация, ...</li>
+                <li>CSS уровней 4 разрабатывается с 29 сентября 2011 года.</li>
+            </ol>
+            <p>
+                <a class=fragment href="https://www.w3.org/Style/CSS/current-work">Текущее состояние CSS спецификаций</a>
+            </p>
+        </section>
+
+
+        <section>
+            <h1>Структура CSS</h1>
+        </section>
+
+        <section data-transition="none">
+            <h2>Анатомия CSS</h2>
+            <pre class="css size-l fragment"><code data-trim>
+селектор {
+    правило
+}
+                        </code></pre>
+        </section>
+        <section data-transition="none">
+            <h2>Анатомия CSS</h2>
+            <pre class="css size-l"><code data-trim>
+селектор,
+селектор,
+селектор {
+    правило
+}
+                        </code></pre>
+        </section>
+        <section data-transition="none">
+            <h2>Анатомия CSS</h2>
+            <pre class="css size-l"><code data-trim>
+селектор,
+селектор,
+селектор {
+    свойство: значение
+}
+                        </code></pre>
+        </section>
+        <section data-transition="none">
+            <h2>Анатомия CSS</h2>
+            <pre class="css size-l">
+селектор,
+селектор,
+селектор {
+    свойство: значение;
+    свойство: значение;
+    свойство: значение;
+    свойство: значение;
+    свойство: значение;
+}
+                        </pre>
+        </section>
+        <section data-transition="none">
+            <h2>Анатомия CSS</h2>
+            <pre class="css size-l">
+селектор<mark class="fragment" data-fragment-index="1">,</mark>
+селектор<mark class="fragment" data-fragment-index="1">,</mark>
+селектор <mark class="fragment" data-fragment-index="2">{</mark> <mark class="fragment" data-fragment-index="5">/* блок объявления стилей */</mark>
+    свойство<mark class="fragment" data-fragment-index="3">:</mark> значение<mark class="fragment" data-fragment-index="4">;</mark>
+    свойство<mark class="fragment" data-fragment-index="3">:</mark> значение<mark class="fragment" data-fragment-index="4">;</mark>
+    свойство<mark class="fragment" data-fragment-index="3">:</mark> значение<mark class="fragment" data-fragment-index="4">;</mark>
+    свойство<mark class="fragment" data-fragment-index="3">:</mark> значение<mark class="fragment" data-fragment-index="4">;</mark>
+    свойство<mark class="fragment" data-fragment-index="3">:</mark> значение<mark class="fragment" data-fragment-index="4">;</mark>
+<mark class="fragment" data-fragment-index="2">}</mark>
+                        </pre>
+        </section>
+        <section data-transition="none">
+            <h2>CSS</h2>
+            <pre class="css size-m">
+body {
+    background: #f1f1f1;
+}
+h1 {
+    font-size: 34px;
+    color: red;
+    text-align: center;
+}
+h2 {
+    font-size: 24px;
+}
+h1,
+h2 {
+    font-family: Tahoma;
+}
+p {
+    font-size: 18px;
+    color: gray;
+    font-family: Arial;
+}
+                        </pre>
+        </section>
+
+        <section data-transition="none">
+            <h2>CSS</h2>
+            <pre class="css size-m">
+body {
+    background: #f1f1f1;
+}
+h1 {
+    font-size: 34px;
+    color: red<mark> </mark><span class="fragment fade-in">text-align: center;</span>
+    <span class="fragment fade-out">text-align: center;</span>
+}
+h2 {
+    font-size: 24px;
+}
+h1,
+h2 {
+    font-family: Tahoma;
+}
+p {
+    font-size: 18px;
+    color: gray;
+    font-family: Arial;
+}
+                        </pre>
+        </section>
+        <section data-transition="none">
+            <h2>CSS</h2>
+            <pre class="css size-m">
+body {
+    background: #f1f1f1;
+}
+h1 {
+    font-size: 34px;
+    color: red;
+    text-align: center;
+}
+h2 {
+    font-size: 24px;
+}
+h1,
+h2 {
+    font-family: Tahoma;
+}
+p {
+    font-size: 18px;
+    color: gray;
+    font-family: Arial;
+}
+                        </pre>
+        </section>
+
+        <section data-transition="none">
+            <h2>CSS</h2>
+            <pre class="css size-m">
+body {
+    background: #f1f1f1;
+}
+h1 {
+    font-size: 34px;
+    color: red;
+    text-align: center;
+}
+h2 {
+    font-size: 24px;
+<mark> </mark><span class="fragment fade-out">
+h1,
+h2 {
+    font-family: Tahoma;
+}
+p {
+    font-size: 18px;
+    color: gray;
+    font-family: Arial;
+</span>}
+                        </pre>
+        </section>
+        <section>
+            <h1 style="text-shadow: #000 0 0 4px; color: #fff">Селектор тега</h1>
+        </section>
+        <section>
+            <h2 style="text-shadow: #000 0 0 4px; color: #fff">Селектор тега</h2>
+            <pre class="html size-l "><code>
+<div><span>К</span>расный заголовок</div>
+                        </code></pre>
+            <pre class="css size-l"><code>
+div {
+    font-size: 50px;
+}
+span {
+    color: red;
+}
+
+                        </code></pre>
+            <div class="fragment"><span style="color: red">К</span>расный заголовок</div>
+        </section>
+        <section>
+            <h1 style="text-shadow: #000 0 0 4px; color: #fff">Классы и идентификаторы</h1>
+        </section>
+
+        <section>
+            <h2>Селектор класса</h2>
+            <pre class="html size-l "><code>
+<div class="heading red">Красный заголовок</div>
+                        </code></pre>
+            <pre class="css size-l"><code>
+.heading {
+    font-size: 50px;
+}
+.red {
+    color: red;
+}
+
+                        </code></pre>
+            <div class="fragment" style="color: red">Красный заголовок</div>
+        </section>
+        <section>
+            <h2>Селектор класса</h2>
+            <pre class="html size-l "><code>
+<div class="heading red">Красный заголовок</div>
+<div class="red">Красный заголовок</div>
+                        </code></pre>
+            <pre class="css size-l"><code>
+.heading {
+    font-size: 50px;
+}
+.red {
+    color: red;
+}
+
+                        </code></pre>
+            <div class="fragment">
+                <div style="font-size: 50px; color: red">Красный заголовок</div>
+                <div style="color: red">Красный заголовок</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Селектор идентификатора</h2>
+            <div style="display: flex; flex-direction: column-reverse">
+                <div class="fragment">Красный заголовок</div>
+                <pre class="css size-l"><code>
+#heading {
+    font-size: 50px;
+}
+#red {
+    color: red;
+}
+                        </code></pre>
+                <pre class="html size-l ">
+&lt;div <mark class="fragment error">id="heading red"</mark>&gt;Красный заголовок&lt;/div&gt;
+                        </pre>
+            </div>
+        </section>
+        <section>
+            <h2>Атрибут id</h2>
+            <p class="size-l">– задаёт уникальный идентификатор элемента.</p>
+            <div>
+
+                        <pre class="html size-l"><code data-trim>
+&lt;div id="red"&gt;Красный заголовок&lt;/div&gt;
+                        </code></pre>
+
+                <pre class="css size-l"><code data-trim>
+#heading {
+    font-size: 50px;
+}
+#red {
+    color: red;
+}
+                        </code></pre>
+                <div class="fragment" style="color: red">Красный заголовок</div>
+            </div>
+        </section>
+
+
+        <section data-background-image="img/11-luke.jpg">
+            <h1 style="text-shadow: #000 0 0 4px; color: #fff">id vs class</h1>
+        </section>
+
+        <section>
+            <h2>id vs class</h2>
+            <ul>
+                <li class="fragment">class – для визуального стиля</li>
+                <li class="fragment">id – для логических или для функциональных элементов (связка for-id у label-input)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Универсальный селектор</h1>
+            <img src="images/cat-scare.webp" alt="">
+        </section>
+        <section>
+            <h2>Универсальный селектор</h2>
+            <p>
+
+            <pre class="html size-l"><code>
+&lt;h2&gt;Красный заголовок&lt;/h2&gt;
+&lt;div&gt;Красный заголовок&lt;/div&gt;
+&lt;p&gt;Красный заголовок&lt;/p&gt;
+            </code></pre>
+
+            <pre class="css size-l"><code>
+* {
+    color: red;
+}
+                        </code></pre>
+            <div class="fragment">
+                <h2 style="color: red">Красный заголовок</h2>
+                <div style="color: red">Красный заголовок</div>
+                <p style="color: red">Красный заголовок</p>
+            </div>
+        </section>
+        <section data-background-image="img/10-combination.png">
+            <h1>Комбинация</h1>
+        </section>
+        <section>
+            <h2>Комбинирование селекторов</h2>
+            <pre class="css size-l"><code data-noescape>
+<span class="fragment">div.class { color: red; }</span>
+<span class="fragment">p.class.class2 { color: red; }</span>
+<span class="fragment">div#id { color: red; }</span>
+<span class="fragment">a#id.class { color: red; }</span>
+<span class="fragment"><mark class="fragment red">div#id#id2 { color: red; }</mark></span>
+<span class="fragment">*.class { color: red; }</span>
+<span class="fragment">.class { color: red; }</span>
+</code></pre>
+        </section>
+
+        <section>
+            <h1>Селекторы атрибутов</h1>
+        </section>
+        <section>
+            <h2>Селекторы атрибутов</h2>
+            <p>
+            <pre class="css size-xl">
+<code class="fragment">[href] { color: red; }</code>
+<code class="fragment">[href="http://ya.ru"] { color: red; }
+[href*="http://ya.ru"] { color: red; }</code>
+<code class="fragment">[href^="https://"] { color: red; }
+[href$="ya.ru"] { color: red; }</code>
+                        </pre>
+        </section>
+
+        <section data-background-image="img/tsar.jpg">
+            <h1>Псевдоэлементы и псевдоклассы</h1>
+        </section>
+        <section>
+            <h2>Динамические псевдоклассы</h2>
+            <p>
+            <pre class="css size-xl"><code>
+a:link { color: blue }
+a:active { color: red }
+a:hover { color: green }
+a:visited { color: purple }
+a:focus { color: yellow }
+        </code></pre>
+            <div class="fragment">
+                <a href="#" class="ex">Красный заголовок</a>
+            </div>
+            <script>
+                window.addEventListener('load', function () {
+                    document.querySelectorAll('.ex')[0].setAttribute('href', '#'+(Math.random()*10000)%10000);
+                })
+            </script>
+        </section>
+        <section>
+            <h2>Динамические псевдоклассы</h2>
+            <p>
+            <pre class="css size-xl">
+<span class="fragment">:enabled</span>
+<span class="fragment">:disabled</span>
+<span class="fragment">:checked</span>
+<span class="fragment">:indeterminate</span>
+<span class="fragment">:read-only</span>
+<span class="fragment">:valid</span>
+                        </pre>
+        </section>
+        <section>
+            <h2>Динамические псевдоклассы</h2>
+            <p>
+        <pre><code data-trim class="html">
+            &lt;input class="example" type="text" disabled />
+            &lt;input class="example" type="text" pattern="\d{9}" required/>
+        </code></pre>
+            <pre class="css size-xl">
+<style style="display: block" contenteditable>input.example { padding: 5px; }
+.example:enabled { background: red; }
+.example:disabled { background: yellow; }
+.example:valid { background: green; }
+</style></pre>
+            <input class="example" type="text" disabled />
+            <input class="example" type="text" pattern="\d{9}" required/>
+        </section>
+        <section>
+
+            <h2>Структурные псевдоклассы</h2>
+            <p>
+            <pre class="css size-xl">
+<span class="fragment">:root</span>
+<span class="fragment">:first-child/last-child</span>
+<span class="fragment">:nth-child/nth-last-child(2n+1)</span>
+<span class="fragment">:nth-of-type/nth-last-of-type(-n+4)</span>
+<span class="fragment">:only-child/only-of-type</span>
+<span class="fragment">:empty</span>
+                        </pre>
+        </section>
+        <section data-transition="none">
+            <h3>Как работают псевдоклассы?</h3>
+            <img width="500" src="img/16-dom1.png" style="float: right; margin-left: 30px;" alt=""/>
+            <pre class="html size-m" style="display: block;"><code>
+&lt;html&gt;
+    <ul>
+        <li></li>
+        <li></li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+    </ul>
+
+    <p></p>
+&lt;/html&gt;
+        </code></pre>
+        </section>
+        <section data-transition="none">
+            <h3><code>:first-child</code></h3>
+
+            <div class="wrapper">
+               <pre class="html size-m" style="display: block;"><code class="html" data-trim data-line-numbers="|1|1,2|1,2,3|1,2,3,6|1,2,3,6,7,11">
+&lt;body>
+    &lt;ul>
+        <li></li>
+        <li></li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+    &lt;/ul>
+
+    <p></p>
+&lt;/body>
+        </code></pre>
+                <div style="flex-shrink: 0; flex-basis: 35%; background: #27302f;">
+                    <img src="images/Schema-1.svg" style="margin-left: 30px;" alt=""/>
+                </div>
+            </div>
+        </section>
+        <section data-transition="none">
+            <h3><code>:last-child</code></h3>
+            <div class="wrapper">
+               <pre class="html size-m" style="display: block;"><code class="html" data-trim data-line-numbers="|5,13|5,13,10,12|5,13,10,12,8,11">
+&lt;body>
+    &lt;ul>
+        <li></li>
+        <li></li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+   &lt;/ul>
+&lt;/body>
+        </code></pre>
+                <div style="flex-shrink: 0; flex-basis: 35%; background: #27302f;">
+                    <img src="images/Schema-2.svg" style="margin-left: 30px;" alt=""/>
+                </div>
+            </div>
+        </section>
+
+
+        <section data-transition="none">
+            <h3><code>:only-child</code></h3>
+            <div class="wrapper">
+               <pre class="html size-m" style="display: block;"><code class="html" data-trim data-line-numbers="|11">
+&lt;body>
+    &lt;ul>
+        <li></li>
+        <li></li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+   &lt;/ul>
+&lt;/body>
+        </code></pre>
+                <div style="flex-shrink: 0; flex-basis: 35%; background: #27302f;">
+                    <img src="images/Schema-3.svg" style="margin-left: 30px;" alt=""/>
+                </div>
+            </div>
+        </section>
+
+        <section data-transition="none">
+            <h3><code>:nth-child(2n)</code></h3>
+            <div class="wrapper">
+               <pre class="html size-m" style="display: block;"><code class="html" data-trim data-line-numbers="|3,17|3,17,5,15|3,17,5,15,11,13|3,17,5,15,11,13,9">
+&lt;html>
+<div></div>
+<div>
+    <span></span>
+    <em></em>
+    <div>
+        <em>
+            <span></span>
+            <span></span>
+        </em>
+        <em>
+            <i></i>
+        </em>
+    </div>
+    <span></span>
+    <div></div>
+</div>
+&lt;/html>
+        </code></pre>
+                <div style="flex-shrink: 0; flex-basis: 35%; background: #27302f;">
+                    <img src="images/Schema-2-1.svg" style="margin-left: 30px;" alt=""/>
+                </div>
+            </div>
+        </section>
+
+        <section data-transition="none">
+            <h3><code>div:nth-of-type(2n)</code></h3>
+            <div class="wrapper">
+               <pre class="html size-m" style="display: block;"><code class="html" data-trim data-line-numbers="|3,17|3,17,16">
+&lt;html>
+<div></div>
+<div>
+    <span></span>
+    <em></em>
+    <div>
+        <em>
+            <span></span>
+            <span></span>
+        </em>
+        <em>
+            <i></i>
+        </em>
+    </div>
+    <span></span>
+    <div></div>
+</div>
+&lt;/html>
+        </code></pre>
+                <div style="flex-shrink: 0; flex-basis: 35%; background: #27302f;">
+                    <img src="images/Schema-2-2.svg" style="margin-left: 30px;" alt=""/>
+                </div>
+            </div>
+        </section>
+
+        <section data-transition="none">
+            <h3><code>:nth-of-type(2n)</code></h3>
+            <div class="wrapper">
+               <pre class="html size-m" style="display: block;"><code class="html" data-trim data-line-numbers="|3,17|3,17,15,16|3,17,15,16,11,13|3,17,15,16,11,13,9">
+&lt;html>
+<div></div>
+<div>
+    <span></span>
+    <em></em>
+    <div>
+        <em>
+            <span></span>
+            <span></span>
+        </em>
+        <em>
+            <i></i>
+        </em>
+    </div>
+    <span></span>
+    <div></div>
+</div>
+&lt;/html>
+        </code></pre>
+                <div style="flex-shrink: 0; flex-basis: 35%; background: #27302f;">
+                    <img src="images/Schema-2-3.svg" style="margin-left: 30px;" alt=""/>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Псевдоэлементы</h2>
+            <p>
+            <pre class="css size-xl"><code>
+::first-letter { color: red }
+::first-line { color: blue }
+        </code></pre>
+            <div>
+                Я маленький апельсин<br/>
+                А я нет
+            </div>
+            <style>.pseudo6::first-letter {color: red} .pseudo6::first-line {color: blue}</style>
+            <div class="pseudo6 fragment">
+                Я маленький апельсин<br/>
+                А я нет
+            </div>
+        </section>
+
+        <section data-background-image="img/14-before-after.jpg">
+            <h1 style="text-shadow: #000 0 0 4px; color: #fff">before/after</h1>
+        </section>
+
+        <section>
+            <h2>Псевдоэлементы</h2>
+            <div class="html size-xl" style="font-family: Courier, 'Courier New', monospace; text-align: left;">
+                &lt;div&gt;<span style="background: red; color: #fff">::before</span>Однажды, в студеную зимнюю пору, я из лесу вышел; был сильный мороз. Гляжу, поднимается медленно в гору лошадка, везущая хворосту воз.<span style="background: red; color: #fff">::after</span>&lt;/div&gt;
+            </div>
+        </section>
+
+
+        <section>
+            <h2>Псевдоэлементы</h2>
+            <pre class="css size-l"><code>::before,
+::after {
+    color: red;
+    font-weight: bold;
+    content: '»';
+}
+::before { content: '«';}
+            </code></pre>
+            <div class="html size-xl" style="font-family: Courier, 'Courier New', monospace; text-align: left;">
+                <span>Однажды, в студеную зимнюю пору, я из лесу вышел; был сильный мороз. Гляжу, поднимается медленно в гору лошадка, везущая хворосту воз.</span>
+            </div>
+            <style>.pseudo7::before, .pseudo7::after{ content: '»'; color: red;  font-weight: bold; } .pseudo7::before { content: '«';}</style>
+            <div class="html size-xl fragment pseudo7" style="font-family: Courier, 'Courier New', monospace; text-align: left;">
+                <span>Однажды, в студеную зимнюю пору, я из лесу вышел; был сильный мороз. Гляжу, поднимается медленно в гору лошадка, везущая хворосту воз.</span>
+            </div>
+        </section>
+
+        <section>
+            <h1>Отношения <span class="fragment">(Combinators)</span></h1>
+        </section>
+        <section>
+            <h2>Combinators</h2>
+            <p>
+            <pre class="css size-xl"><code data-noescape>
+<span class="fragment">div div – потомок</span>
+<span class="fragment">div > div – сын</span>
+<span class="fragment">div + div – брат</span>
+<span class="fragment">div ~ div – братья</span>
+        </code></pre>
+        </section>
+
+        <section data-transition="none">
+            <h3><code>ul li</code></h3>
+            <div class="wrapper">
+               <pre class="html size-m" style="display: block;"><code class="html" data-trim data-line-numbers="">
+&lt;html>
+    &lt;ul>
+        <li></li>
+        <li></li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+   &lt;/ul>
+&lt;/html>
+        </code></pre>
+                <div style="flex-shrink: 0; flex-basis: 35%; background: #27302f;">
+                    <img src="images/Schema-3-1.svg" style="margin-left: 30px;" alt=""/>
+                </div>
+            </div>
+        </section>
+        <section data-transition="none">
+            <h3><code>li li</code></h3>
+            <div class="wrapper">
+               <pre class="html size-m" style="display: block;"><code class="html" data-trim data-line-numbers="">
+&lt;html>
+    &lt;ul>
+        <li></li>
+        <li></li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+   &lt;/ul>
+&lt;/html>
+        </code></pre>
+                <div style="flex-shrink: 0; flex-basis: 35%; background: #27302f;">
+                    <img src="images/Schema-3-2.svg" style="margin-left: 30px;" alt=""/>
+                </div>
+            </div>
+        </section>
+        <section data-transition="none">
+            <h3><code>li li:nth-child(2n)</code></h3>
+            <div class="wrapper">
+               <pre class="html size-m" style="display: block;"><code class="html" data-trim data-line-numbers>
+&lt;html>
+    &lt;ul>
+        <li></li>
+        <li></li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+   &lt;/ul>
+&lt;/html>
+        </code></pre>
+                <div style="flex-shrink: 0; flex-basis: 35%; background: #27302f;">
+                    <img src="images/Schema-3-3.svg" style="margin-left: 30px;" alt=""/>
+                </div>
+            </div>
+        </section>
+        <section data-transition="none">
+            <h3><code>html > *</code></h3>
+            <div class="wrapper">
+               <pre class="html size-m" style="display: block;"><code class="html" data-trim data-line-numbers="">
+&lt;html>
+    &lt;ul>
+        <li></li>
+        <li></li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+   &lt;/ul>
+&lt;/html>
+        </code></pre>
+                <div style="flex-shrink: 0; flex-basis: 35%; background: #27302f;">
+                    <img src="images/Schema-3-4.svg" style="margin-left: 30px;" alt=""/>
+                </div>
+            </div>
+        </section>
+        <section data-transition="none">
+            <h3><code>li:first-child + li</code></h3>
+            <div class="wrapper">
+               <pre class="html size-m" style="display: block;"><code class="html" data-trim data-line-numbers="">
+&lt;html>
+    &lt;ul>
+        <li></li>
+        <li></li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+   &lt;/ul>
+&lt;/html>
+        </code></pre>
+                <div style="flex-shrink: 0; flex-basis: 35%; background: #27302f;">
+                    <img src="images/Schema-3-5.svg" style="margin-left: 30px;" alt=""/>
+                </div>
+            </div>
+        </section>
+        <section data-transition="none">
+            <h3><code>li:first-child ~ li</code></h3>
+            <div class="wrapper">
+               <pre class="html size-m" style="display: block;"><code class="html" data-trim data-line-numbers="">
+&lt;html>
+    &lt;ul>
+        <li></li>
+        <li></li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+   &lt;/ul>
+&lt;/html>
+        </code></pre>
+                <div style="flex-shrink: 0; flex-basis: 35%; background: #27302f;">
+                    <img src="images/Schema-3-6.svg" style="margin-left: 30px;" alt=""/>
+                </div>
+            </div>
+        </section>
+        <section data-transition="none">
+            <h3><code>li:not(:first-child)</code></h3>
+            <div class="wrapper">
+               <pre class="html size-m" style="display: block;"><code class="html" data-trim data-line-numbers="">
+&lt;html>
+    &lt;ul>
+        <li></li>
+        <li></li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+   &lt;/ul>
+&lt;/html>
+        </code></pre>
+                <div style="flex-shrink: 0; flex-basis: 35%; background: #27302f;">
+                    <img src="images/Schema-3-6.svg" style="margin-left: 30px;" alt=""/>
+                </div>
+            </div>
+        </section>
+        <section data-background="images/fancy-cushion.png" data-background-repeat="repeat" data-background-size="450px">
+            <h1 style="text-shadow: #000 0 0 4px; color: #fff">Специфичность</h1>
+        </section>
+        <section>
+            <h2>Специфичность</h2>
+            <pre class="css size-xl"><code>
+div {
+    color: red;
+}
+
+div {
+    color: blue;
+}
+            </code></pre>
+            <h2 class="fragment" style="color: blue">Текст</h2>
+        </section>
+        <section>
+            <h2>Специфичность</h2>
+            <pre class="css size-xl"><code>
+html div {
+    color: red;
+}
+
+div {
+    color: blue;
+}
+            </code></pre>
+            <h2 class="fragment" style="color: red">Текст</h2>
+        </section>
+        <section>
+            <h2>Считаем специфичность</h2>
+            <p>В одном правиле считаем:</p>
+            <ul style="display: block;">
+                <li class="fragment">количество селекторов по идентификатору (=a)</li>
+                <li class="fragment">количество селекторов по классу, псевдоклассу (:not не учитывается) или атрибуту (=b)</li>
+                <li class="fragment">количество селекторов элементов (тегов) или псевдоэлементов (=c)</li>
+                <li class="fragment">универсальный селектор, селекторы потомков, детей и прочие не влияют на специфичность</li>
+            </ul>
+        </section>
+        <section>
+            <img width="600" src="images/css-specifiety.svg"/>
+        </section>
+        <section>
+            <h2>Применяем высчитанные значения:</h2>
+            <ol>
+                <li>Находим каждому HTML элементу соответствующие ему селекторы</li>
+                <li>Сортируем селекторы исходя из специфичности (от более приоритетных к менее приоритетным)</li>
+                <li>Применяем правила из самого специфичного селектора, затем применяем незаданные правила из менее специфичного и т.д</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Применяем высчитанные значения:</h2>
+            <ol>
+                <li>Находим каждому HTML элементу соответствующие ему селекторы</li>
+                <li>Сортируем селекторы исходя из специфичности (от менее приоритетных к более приоритетным)</li>
+                <li>Применяем правила последовательно</li>
+            </ol>
+        </section>
+
+        <section data-transition="none">
+            <h2>Специфичность</h2>
+            <pre class="css size-xl">
+div { <span class="fragment">/* 0 0 1 */</span>
+    color: blue;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+html div { <span class="fragment">/* 0 0 2 */</span>
+    color: red;
+}
+
+div { <span class="fragment">/* 0 0 1 */</span>
+    font-size: 15px;
+}
+            </pre>
+        </section>
+        <section data-transition="none">
+            <h2>Специфичность</h2>
+            <pre class="css size-xl">
+div { <span>/* 0 0 1 */</span>
+    color: blue;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+div { <span>/* 0 0 1 */</span>
+    font-size: 15px;
+}
+
+html div { <span>/* 0 0 2 */</span>
+    color: red;
+}
+
+            </pre>
+        </section>
+
+        <section data-transition="none">
+            <h2>Специфичность</h2>
+            <pre class="css size-xl">
+div {
+    color: blue; /* 0 0 1 */
+    font-weight: bold; /* 0 0 1 */
+    font-size: 12px; /* 0 0 1 */
+}
+
+div {
+    font-size: 15px; /* 0 0 1 */
+}
+
+html div {
+    color: red; /* 0 0 2 */
+}
+            </pre>
+        </section>
+        <section data-transition="none">
+            <h2>Специфичность</h2>
+            <pre class="css size-xl">
+color: blue; /* 0 0 1 */
+<mark data-fragment-index="3" class="fragment">font-weight: bold;</mark> /* 0 0 1 */
+font-size: 12px; /* 0 0 1 */
+<mark data-fragment-index="2" class="fragment">font-size: 15px;</mark> /* 0 0 1 */
+<mark data-fragment-index="1" class="fragment">color: red;</mark> /* 0 0 2 */
+            </pre>
+        </section>
+        <section data-transition="none">
+            <h2>Специфичность</h2>
+            <pre class="css size-xl">
+color: blue; /* 0 0 1 */
+font: 13px <mark data-fragment-index="4" class="fragment">Arial;</mark> /* 0 0 1 */
+font-size: 12px; /* 0 0 1 */
+<mark data-fragment-index="3" class="fragment">font-weight: bold;</mark> /* 0 0 1 */
+<mark data-fragment-index="2" class="fragment">font-size: 15px;</mark> /* 0 0 1 */
+<mark data-fragment-index="1" class="fragment">color: red;</mark> /* 0 0 2 */
+            </pre>
+        </section>
+        <section>
+            <h2>Инлайн и !important</h2>
+            <pre class="fragment html size-xl"><code>
+<div style="color: blue"></div>
+            </code></pre>
+            <pre class="fragment css size-xl"><code>
+div {
+    color: green !important;
+}
+            </code></pre>
+            <pre class="fragment html size-xl"><code>
+<div style="color: white !important"></div>
+            </code></pre>
+            <ol class="fragment">
+                <li>Инлайн стили по умолчанию приоритетнее стилей в CSS</li>
+                <li>Стили в CSS с !important приоритетнее инлайн стилей</li>
+                <li>Инлайн стили с !important приоритетнее всего <span class="fragment">(на самом деле нет)</span></li>
+            </ol>
+        </section>
+        <section>
+            <h2>Специфичность</h2>
+            <pre class="css size-xl">
+color: blue; /* 0 0 1 */
+<mark data-fragment-index="1" class="fragment">font-weight: bold; /* 0 0 1 */</mark>
+font-size: 12px; /* 0 0 1 */
+<mark data-fragment-index="1" class="fragment">font-size: 15px; /* 0 0 1 */</mark>
+color: red; /* 0 0 2 */
+&lt;div style="color: blue"&gt;&lt;/div&gt;
+color: green !important;
+&lt;div style="<mark data-fragment-index="1" class="fragment">color: white !important"</mark>&gt;&lt;/div&gt;
+            </pre>
+        </section>
+        <section data-background="images/fancy-cushion.png" data-background-repeat="repeat" data-background-size="450px">
+            <h1 style="text-shadow: #000 0 0 4px; color: #fff">Наследование</h1>
+        </section>
+        <section>
+            <h2>Наследование</h2>
+            <ol>
+                <li>Некоторые стили применяются не только к целевому элементу, но и к его потомкам</li>
+                <li>Унаследованные стили не имеют специфичности, то есть их всегда перебивает любой селектор</li>
+                <li>Именно поэтому не рекомендуют пользоваться селектором *, так как его специфичность будет «0 0 0»</li>
+            </ol>
+            <p></p>
+        </section>
+        <section>
+            <h2>Пример наследования</h2>
+            <pre class="html size-xl"><code>
+<div>
+    Привет,
+    <abbr title="Computer Science Center">
+        CSC
+    </abbr>
+</div>
+            </code></pre>
+            <pre class="css size-l">
+div {
+    color: green; /* 0 0 1 */
+    <span data-fragment-index="2" class="fragment">/* abbr { color : green } – нет специфичности */</span>
+}
+            </pre>
+            <div data-fragment-index="1" class="fragment" style="color: green">
+                Привет,
+                <abbr title="Computer Science Center">
+                    CSC
+                </abbr>
+            </div>
+        </section>
+        <section>
+            <h2>Пример наследования</h2>
+            <pre class="html size-l"><code>
+<div>
+    Привет,
+    <abbr title="Computer Science Center">
+        CSC
+    </abbr>
+</div>
+            </code></pre>
+            <pre class="css size-l"><code data-noescape>
+* {
+    color: red; /* 0 0 0 */
+}
+div {
+    color: green; /* 0 0 1 */
+    <span data-fragment-index="2" class="fragment">/* abbr { color : green } – нет специфичности */</span>
+}
+            </code></pre>
+            <div data-fragment-index="1" class="fragment" style="color: green">
+                Привет,
+                <abbr title="Computer Science Center" style="color: red">
+                    CSC
+                </abbr>
+            </div>
+        </section>
+        <section>
+            <h2>Наследование</h2>
+            <p>Стили, которые наследуются (<a href="http://www.w3.org/TR/CSS21/propidx.html">Полный список</a>)</p>
+            <div style="-moz-columns: 2;-webkit-columns: 2; columns: 2; font-family: monospace; text-align: left">color<br>
+                cursor<br>
+                direction<br>
+                empty-cells<br>
+                font-family<br>
+                font-size<br>
+                font-weight<br>
+                font-style<br>
+                font-variant<br>
+                font<br>
+                letter-spacing<br>
+                list-style-type<br>
+                list-style-position<br>
+                list-style-image<br>
+                list-style<br>
+                line-height<br>
+                quotes<br>
+                text-align<br>
+                text-indent<br>
+                text-transform<br>
+                visibility<br>
+                white-space<br>
+                word-spacing</div>
+        </section>
+        <section>
+            <h1>Порядок</h1>
+            <img src="images/cat-order.webp" alt="">
+        </section>
+        <section>
+            <h2>Порядок применения</h2>
+            <ol>
+                <li>Стили браузера</li>
+                <li>Стили пользователя и/или плагинов браузера</li>
+                <li>Стили страницы</li>
+                <li>Стили страницы с !important</li>
+                <li>Стили пользователя и/или плагинов браузера с !important</li>
+            </ol>
+        </section>
+        <section>
+            <h1 >Это и есть каскад</h1>
+        </section>
+
+        <section data-background="images/polka-dots.png" data-background-repeat="repeat" data-background-size="300px">
+            <h1>Единицы измерения длины</h1>
+        </section>
+        <section>
+            <h2>Числовые значения</h2>
+            <ol>
+                <li>Целые числа (1, 2, 3...)</li>
+                <li class="fragment">Дробные числа (.5, 1.5)</li>
+                <li class="fragment">Процентные значения (50%)</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Абсолютные единицы измерения длины</h2>
+            <ol>
+                <li>Миллиметры (mm)</li>
+                <li class="fragment">Сантиметры (cm)</li>
+                <li class="fragment">Дюймы (in)</li>
+                <li class="fragment">Пункты – используется в типографиях, 1 дюйм = 72 пункта (pt)</li>
+                <li class="fragment">Пики – 12 пунктов (pc)</li>
+            </ol>
+            <p class="fragment">Абсолютные единицы удобны при определении CSS для печати. В вебе же практически <mark>не используются</mark></p>
+        </section>
+        <section>
+            <h2>Относительные единицы измерения длины</h2>
+            <ol>
+                <li>пикселы (px)</li>
+                <li class="fragment">em – зависит от размера шрифта (em)</li>
+                <li class="fragment">rem – зависит от размера шрифта корневого элемента (rem)</li>
+                <li class="fragment">ex – зависит от высоты символа x в данном шрифте</li>
+                <li class="fragment">ch – зависит от ширины символа 0 в данном шрифте</li>
+                <li class="fragment">vh/vw – 1/100 высоты и ширины vieport'а соответственно</li>
+                <li class="fragment">vmax – 1/100 от максимума между высотой и шириной vieport'а</li>
+                <li class="fragment">vmin – 1/100 от минимума между высотой и шириной vieport'а</li>
+            </ol>
+        </section>
+        <section data-background-image="img/24-nyan.gif">
+            <h1 style="text-shadow: #000 0 0 4px; color: #fff">Цвета</h1>
+        </section>
+
+        <section>
+            <h2>Способы задания красного цвета</h2>
+            <ol>
+                <li class="fragment">Именованные цвета – red</li>
+                <li class="fragment">Функциональный – rgb(255, 0, 0) или rgba(255, 0, 0, 1)</li>
+                <li class="fragment">Шестнадцатиричный – #ff0000 или #f00</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Ещё типы значений</h2>
+            <ul>
+                <li class="fragment">Именованные слова: bold, underline</li>
+                <li class="fragment">Комбинации: 1px solid red</li>
+                <li class="fragment">Функциональные: url(), attr(), rgb()</li>
+            </ul>
+        </section>
+        <section >
+            <h1>Вопросы?</h1>
+            <img src="images/cat-finish.gif" alt="">
+        </section>
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+</script>
+</body>
+</html>

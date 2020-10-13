@@ -10,8 +10,8 @@
     font-family: textbook;
     font-weight: 400;
     src: local(textbook);
-    src: url('textbook-regular.woff'),
-    url('textbook-regular.ttf');
+    src: url('./textbook-regular.woff'),
+    url('./textbook-regular.ttf');
 }
 
 @font-face
@@ -19,8 +19,8 @@
     font-family: textbook-light;
     font-weight: 200;
     src: local(textbook-light);
-    src: url('textbook-light.woff'),
-    url('textbook-light.ttf');
+    src: url('./textbook-light.woff'),
+    url('./textbook-light.ttf');
 }
 
 @font-face
@@ -28,8 +28,8 @@
     font-family: textbook-bold;
     font-weight: 700;
     src: local(textbook-bold);
-    src: url('textbook-bold.woff'),
-    url('textbook-bold.ttf');
+    src: url('./textbook-bold.woff'),
+    url('./textbook-bold.ttf');
 }
 
 @font-face
@@ -37,8 +37,8 @@
     font-family: sourcecodepro-light;
     font-weight: 200;
     src: local(textbook-bold);
-    src: url('SourceCodePro-Light.woff'),
-    url('SourceCodePro-Light.ttf');
+    src: url('./SourceCodePro-Light.woff'),
+    url('./SourceCodePro-Light.ttf');
 }
 
 /*********************************************

@@ -1,0 +1,56 @@
+/*!
+ * reveal.js
+ * http://lab.hakim.se/reveal-js
+ * MIT licensed
+ *
+ * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
+ */
+@font-face {
+  font-family: yandex-sans-display;
+  font-weight: 400;
+  src: url('assets/fonts/Yandex Sans Display-Regular.ttf');
+}
+@font-face {
+  font-family: yandex-sans-display;
+  font-weight: 400;
+  font-style: italic;
+  src: url('assets/fonts/Yandex Sans Display-Regular Italic.ttf');
+}
+@font-face {
+  font-family: yandex-sans-display;
+  font-weight: 200;
+  src: url('assets/fonts/Yandex Sans Display-Light.ttf');
+}
+@font-face {
+  font-family: yandex-sans-display;
+  font-weight: 700;
+  src: url('assets/fonts/Yandex Sans Display-Bold.ttf');
+}
+
+@font-face {
+  font-family: yandex-sans;
+  font-weight: 400;
+  src: url('assets/fonts/Yandex Sans Text-Regular.ttf');
+}
+@font-face {
+  font-family: yandex-sans;
+  font-weight: 400;
+  font-style: italic;
+  src: url('assets/fonts/Yandex Sans Text-Regular Italic.ttf');
+}
+@font-face {
+  font-family: yandex-sans;
+  font-weight: 200;
+  src: url('assets/fonts/Yandex Sans Text-Light.ttf');
+}
+@font-face {
+  font-family: yandex-sans;
+  font-weight: 700;
+  src: url('assets/fonts/Yandex Sans Text-Bold.ttf');
+}
+@font-face {
+  font-family: sourcecodepro-light;
+  font-weight: 200;
+  src: local(textbook-bold);
+  src: url('assets/fonts/SourceCodePro-Light.ttf');
+}
